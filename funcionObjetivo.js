@@ -1,13 +1,13 @@
 class funcionObjetivo {
-	constructor(coeficientes) {
-		this.coeficientes = coeficientes;
+	constructor(coeficients) {
+		this.coeficients = coeficients;
 	}
 
-	evaluar(especimen) {
-		var valor = 0;
-		for(let i = 0; i < this.coeficientes.length; i++)
-			valor += this.coeficientes[i] * especimen.valores[i];
+	evaluate(especimen) {
+		var value = 0;
+		for(let i = 0; i < this.coeficients.length; i++)
+			value += this.coeficients[i] * especimen.values[i];
 
-		return valor;
+		return value;
 	}
 }

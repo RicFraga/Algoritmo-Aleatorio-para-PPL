@@ -1,15 +1,22 @@
 class especimen {
-	constructor(n) {
-		this.valores = new Array(n);
+	constructor(amount) {
+		this.values = new Array(amount);
+		this.obtained = false;
+
+		for(let i = 0; i < this.values.length; i++)
+			this.values[i] = Math.random() * 60;
 	}
 
-	iniciar() {
-		for(let i = 0; i < this.valores.length; i++)
-			this.valores[i] = Math.random() * 60;
+	show() {
+		for(let i = 0; i < this.values.length; i++)
+			console.log(this.values[i]);
 	}
 
-	mostrar() {
-		for(let i = 0; i < this.valores.length; i++)
-			console.log(this.valores[i]);
+	setObtained(obtained){
+		this.obtained = obtained;
+	}
+
+	getObtained(){
+		return this.obtained;
 	}
 }

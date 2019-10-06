@@ -1,47 +1,50 @@
 class restriccion {
-	constructor(coeficientes, tipo, objetivo) {
-		this.coeficientes = coeficientes;
-		this.tipo = tipo;
-		this.objetivo = objetivo;
+	constructor(coeficients, type, target) {
+		this.coeficients = coeficients;
+		this.type = type;
+		this.target = target;
 	}
 	
-	evaluar(especimen) {
+	evaluate(especimen) {
 		// Total del lado que toma valores de la desigualdad
 		var total = 0;
+		var check = false;
 
 		// Se puede recorrer en un solo for ya que ambos vectores tienen la misma longitud
-		for(let i = 0; i < this.coeficientes.length; i++)
-			total += this.coeficientes[i] * especimen.valores[i];
+		for(let i = 0; i < this.coeficients.length; i++)
+			total += this.coeficients[i] * especimen.values[i];
 
 		// Si la desigualdad es menor o igual
-		if(this.tipo == "<=")
+		if(this.type == "<=")
 		{
-			if(total <= this.objetivo)
-				return true;
-
-			else
-				return false;
+			if(total <= this.target)
+			{
+				check = true;
+				especimen.setObtained(total);
+			}
 		}
 
 		// Si la desigualdad es mayor o igual
 		else if(this.tipo == ">=")
 		{
 			if(total >= this.objetivo)
-				return true;
-
-			else
-				return false;
+			{
+				check = true;
+				especimen.setObtained(total);
+			}
 		}
 
 		// Si la desigualdad es igual
 		else
 		{
 			if(total == this.objetivo)
-				return true;
-
-			else
-				return false;
+			{
+				check = true;
+				especimen.setObtained(total);
+			}
 		}
+
+		return check;
 	}
 
 }

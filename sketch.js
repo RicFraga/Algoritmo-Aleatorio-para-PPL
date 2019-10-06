@@ -12,30 +12,22 @@ var cantidad = 100;
 var poblacion = new Array(cantidad);
 
 for(let i = 0; i < cantidad; i++)
-{
-	poblacion[i] = new especimen(2);
-	poblacion[i].iniciar();	
-}
+	poblacion[i] = new especimen(2);	
 
 // Evaluamos la restricción con la población generada
-
-var max = -1000;
 var indice_max;
 
 for(let i = 0; i < cantidad; i++)
 {
-	if(rest.evaluar(poblacion[i]) == true)
-	{
-		console.log("Cumplí la restricción!");
-		poblacion[i].mostrar();
-		
-		if(fo.evaluar(poblacion[i]) > max)
-		{
-			max = fo.evaluar(poblacion[i]);
-			indice_max = i;
-		}
-	}
+	if(rest.evaluate(poblacion[i]) == true)
+		poblacion[i].setObtained(fo.evaluate(poblacion[i]));	
 }
 
-console.log("Max z = " + max + " con el especimen ");
-poblacion[indice_max].mostrar();
+for(let i = 0; i < cantidad; i++)
+{
+	if(poblacion[i].getObtained)
+	{
+		console.log("Cumplió las restricciones con un valor de : " + poblacion[i].getObtained());
+		poblacion[i].show();
+	}
+}
