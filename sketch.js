@@ -1,4 +1,3 @@
-
 // Construimos la función objetivo 12a + 5b
 var fo = new funcionObjetivo([12, 5]);
 
@@ -8,7 +7,7 @@ var rest = new restriccion([2,3], "<=", 50);
 
 // Construimos una población de n especimenes
 
-var cantidad = 100;
+var cantidad = 5;
 var poblacion = new Array(cantidad);
 
 for(let i = 0; i < cantidad; i++)
@@ -23,11 +22,22 @@ for(let i = 0; i < cantidad; i++)
 		poblacion[i].setObtained(fo.evaluate(poblacion[i]));	
 }
 
-for(let i = 0; i < cantidad; i++)
+/*for(let i = 0; i < cantidad; i++)
 {
-	if(poblacion[i].getObtained)
+	// Usar una variable aparte para evitar problemas de referencia
+	var ok = poblacion[i].getObtained();
+
+	if(ok != false)
 	{
-		console.log("Cumplió las restricciones con un valor de : " + poblacion[i].getObtained());
+		console.log("Cumplió las restricciones con un valor de : " + ok);
 		poblacion[i].show();
 	}
+}*/
+
+for(let i = 0; i < cantidad; i++)
+{
+	console.log("Representación decimal: ");
+	poblacion[i].show();
+	console.log("Representación binaria: ");
+	poblacion[i].showBinary();
 }
