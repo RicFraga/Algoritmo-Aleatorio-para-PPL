@@ -5,7 +5,7 @@ class especimen {
 		this.binaries = new Array(amount);
 
 		for(let i = 0; i < this.values.length; i++)
-			this.values[i] = Math.random() * 60;
+			this.values[i] = Math.random() * 7;
 		
 		var binary;
 		for(let i = 0; i < this.values.length; i++)
@@ -14,7 +14,7 @@ class especimen {
 			binary = this.values[i].toString(2);
 			this.binaries[i] = binary;
 		}
-	}	
+	}
 
 	show() {
 		for(let i = 0; i < this.values.length; i++)
@@ -38,4 +38,5 @@ class especimen {
 		else
 			return this.obtained;
 	}
+
 }

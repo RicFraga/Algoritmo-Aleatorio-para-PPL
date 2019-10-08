@@ -10,4 +10,5 @@ class funcionObjetivo {
 
 		return value;
 	}
+
 }
