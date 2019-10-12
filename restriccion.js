@@ -16,8 +16,14 @@ class restriccion {
 		var check = false;
 
 		// Se puede recorrer en un solo for ya que ambos vectores tienen la misma longitud
-		for(let i = 0; i < this.coeficients.length; i++)
-			total += this.coeficients[i] * especimen.values[i];		
+		try
+		{
+			for(var i = 0; i < this.coeficients.length; i++)
+				total += this.coeficients[i] * especimen.values[i];
+		} catch(error)
+		{
+			console.log("");
+		}
 
 		// Si la desigualdad es menor o igual
 		if(this.type == "<=")
@@ -25,7 +31,7 @@ class restriccion {
 			if(total <= this.target)
 			{
 				check = true;
-				especimen.setObtained(total);
+				especimen.setObtained(true);
 			}
 		}
 
@@ -35,7 +41,7 @@ class restriccion {
 			if(total >= this.target)
 			{
 				check = true;
-				especimen.setObtained(total);
+				especimen.setObtained(true);
 			}
 		}
 
@@ -43,15 +49,19 @@ class restriccion {
 		else if(this.type == "=")
 		{
 			// Se toma en cuenta una tolerancia del 5%
-			var allowed = this.target * 0.05;
-			if(total <= this.target + allowed && total >= this.target - allowed)
+			var allowed = this.target * 0.05;			
+			if((total <= (this.target + allowed)) && (total >= (this.target - allowed)))
 			{
 				check = true;
-				especimen.setObtained(total);
+				especimen.setObtained(true);
 			}
 		}
-
+		
 		return check;
+	}
+
+	show(){
+		console.log(this.coeficients[0] + "a " + this.coeficients[1] + "b " + this.type + " " + this.target);
 	}
 
 }
