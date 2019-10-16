@@ -1,19 +1,10 @@
 class especimen {
 	constructor(amount) {
 		this.values = new Array(amount);
-		this.obtained = false;
-		this.binaries = new Array(amount);
+		this.obtained = false;		
 
 		for(let i = 0; i < this.values.length; i++)
-			this.values[i] = Math.random() * 7;
-		
-		var binary;
-		for(let i = 0; i < this.values.length; i++)
-		{
-			binary = "";
-			binary = this.values[i].toString(2);
-			this.binaries[i] = binary;
-		}
+			this.values[i] = Math.random() * 100;			
 	}
 
 	show() {

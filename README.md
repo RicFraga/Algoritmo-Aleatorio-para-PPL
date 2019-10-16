@@ -1,5 +1,5 @@
 # pplag
-Programa para resolver un problema de programación lineal mediante algoritmos genéticos
+Programa para resolver un problema de programación lineal mediante un algoritmo aleatorio
 
 El programa puede recibir un máximo de 5 variables y 5 restricciones
 El programa acepta restricciones <=, >= e =
