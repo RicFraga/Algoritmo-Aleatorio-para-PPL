@@ -122,7 +122,7 @@ function calculateLimits(restrictions) {
 		columna para obtener las restricciones por variable, las
 		restricciones se almacenan de la siguiente forma
 
-		limits = [limite_inf_a, limite_sup_a, limite_inf_c, limite_sup_b, ...]
+		limits = [limite_inf_a, limite_sup_a, limite_inf_b, limite_sup_b, ...]
 
 		Cuando una variable no participa en una restricción el límite inferior
 		de esta se ubica en 0 (desperdicio de aleatorios)
@@ -139,7 +139,7 @@ function calculateLimits(restrictions) {
 			if(restrictions[j].coeficients[i] == 0) {
 				comp = 0;
 			}
-			
+
 			// Si el coeficiente no es 0 se calcula el cociente
 			else if(restrictions[j].coeficients[i] != 0) {
 				comp = restrictions[j].target / restrictions[j].coeficients[i];
@@ -148,11 +148,17 @@ function calculateLimits(restrictions) {
 			if(comp < min)
 				min = comp;
 
+			if(restrictions[j].type == "=")
+				min = 0;
+
 			if(comp > max)
 				max = comp;
 		}
-		
-		// Agregamos los límites de la variable al arreglo de límites	
+
+		// Agregamos los límites de la variable al arreglo de límites
+		if(min < 0)
+			min = 0;
+
 		limits.push(min);
 		limits.push(max);
 	}

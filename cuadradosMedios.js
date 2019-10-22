@@ -1,6 +1,5 @@
 class cuadradosMedios {
-	constructor(seed)
-	{
+	constructor(seed) {
 		var squared = seed ** 2;
 		var squared_string = squared.toString();
 		var l = squared_string.length;
@@ -12,8 +11,7 @@ class cuadradosMedios {
 		this.random = parseFloat(random_string);
 	}
 
-	get()
-	{
+	get() {
 		return this.random;
 	}
 }
