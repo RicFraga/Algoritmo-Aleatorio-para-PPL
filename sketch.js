@@ -148,7 +148,7 @@ function calculateLimits(restrictions) {
 			if(comp < min)
 				min = comp;
 
-			if(restrictions[j].type == "=")
+			if(restrictions[j].type == "=" || restrictions[j].type == "<=")
 				min = 0;
 
 			if(comp > max)
