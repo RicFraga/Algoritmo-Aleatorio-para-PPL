@@ -1,18 +1,37 @@
 <html>
 <head>
-  	<meta charset="UTF-8">
-  	<script language="javascript" src="especimen.js"></script>
-  	<script language="javascript" src="restriccion.js"></script>
-  	<script language="javascript" src="funcionObjetivo.js"></script>
-  	<script language="javascript" src="sketch.js"></script>
-  	<title>Problema de Programación Lineal</title>
+
+  	<meta charset="UTF-8"></meta>
+  	<title>Algoritmo Aleatorio para PPL</title>
+  	<script src="cuadradosMedios.js"></script>  	
+  	<script src="especimen.js"></script>
+  	<script src="restriccion.js"></script>
+  	<script src="funcionObjetivo.js"></script>
+  	<script src="sketch.js"></script>
+
 </head>
-<body>	
-	<h1>Método Cuantitativos para la Toma de Decisiones</h1>
-	<label>Número de variables</label>
-	<input type="numeric" id="variables"><br>
-	<label>Número de especimenes</label>
-	<input type="numeric" id="poblacion"><br><br><br>
+<body>
+
+	<h2>Métodos Cuantitativos para la Toma de Decisiones</h2>
+
+	<h4>Número de variables</h4>
+	<input id = "variables" type="numeric"></input>
+
+	<h4>Número de restricciones</h4>
+	<input id = "rest" type="numeric"></input>
+
+	<h4>Tamaño de la población</h4>
+	<input id = "pob" type="numeric"></input><br></br>
+
+	<div id="restricciones">
+		<!-- 
+			Aquí se muestran las restricciones
+		-->
+	</div>
+
+	<button onclick="loadDoc();">Ingresar datos</button>
+
 	<button onclick="init();">Iniciar</button>
+
 </body>
 </html>
